@@ -1,2 +1,1 @@
-# eva-p2
-EVA Phase 2 repository
+# EVA Phase 2 repository
