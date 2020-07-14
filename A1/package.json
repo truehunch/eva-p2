@@ -1,0 +1,12 @@
+{
+  "name": "assignment1",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {},
+  "scripts": {
+  "deploy": "serverless deploy --aws-profile s2a"  
+},
+  "devDependencies": {
+    "serverless-python-requirements": "^5.1.0"
+  }
+}
