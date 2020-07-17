@@ -46,7 +46,6 @@ package:
     - .pytest_cache/**
     - model/**
 
-
 functions:
   classify_image:
     handler: handler.classify_image
