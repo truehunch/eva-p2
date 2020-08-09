@@ -5,9 +5,4 @@ class_labels = {
     3 : 'Winged Drones'
 }
 
-classes = [
-    'Flying Birds',
-    'Large QuadCopters',
-    'Small QuadCopters',
-    'Winged Drones'
-]
+classes = ['Flying Birds', 'Large QuadCopters', 'Small QuadCopters', 'Winged Drones']

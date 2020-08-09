@@ -77,7 +77,7 @@ def transform_image(image_bytes):
 def predict(image_bytes):
     tensor = transform_image(image_bytes=image_bytes)
     predictions = F.softmax(model(tensor))
-    predictions = predictions.detach().numpy().tolist()
+    predictions = predictions.detach().numpy().flatten().tolist()
     result = dict(zip(classes, predictions))
     logging.info(result)
     return result
