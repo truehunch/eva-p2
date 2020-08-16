@@ -1,0 +1,62 @@
+service: assignment3-face-align
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: dev
+  region: ap-south-1
+  timeout: 60
+  environment:
+    MODEL_BUCKET_NAME: evap2-dataset
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - s3:getObject
+      Resource: arn:aws:s3:::evap2-dataset/*
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+    slim: true
+    strip: false
+    noDeploy:
+      - docutils
+      - jmespath
+      - pip
+      - python-dateutil
+      - setuptools
+      - six
+      - tensorboard
+    useStaticCache: true
+    useDownloadCache: true
+    cacheLocation: "./cache"
+
+package:
+  individually: false
+  exclude:
+    - .vscode/**
+    - package.json
+    - trainer.py
+    - package-log.json
+    - node_modules/**
+    - cache/**
+    - test/**
+    - __pycache__/**
+    - .pytest_cache/**
+    - model/**
+
+
+functions:
+  face_align:
+    handler: handler.face_align
+    memorySize: 3008
+    timeout: 60
+    events:
+      - http:
+          path: assignment3-face-align
+          method: post
+          cors: true
+
+plugins:
+  - serverless-python-requirements
