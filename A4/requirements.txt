@@ -1,0 +1,7 @@
+requests_toolbelt
+#https://files.pythonhosted.org/packages/d4/0e/14414d78e301d8f6167c612319e9cb04dfb8d3042d40aec348172532756d/opencv_python_headless-4.4.0.42-cp38-cp38-manylinux2014_x86_64.whl
+#numpy
+#dlib
+torchvision==0.6.0
+https://download.pytorch.org/whl/cpu/torch-1.5.0%2Bcpu-cp38-cp38-linux_x86_64.whl
+#https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp38-cp38-linux_x86_64.whl
