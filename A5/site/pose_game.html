@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>EVA4 PHASE2</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/icon.svg" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <!-- Filepond stylesheet -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">EVA4 PHASE2</a>
+            <button
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="index.html">Assignments</a></li>
+                    <!--<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Video and body-->
+    <div class="container">
+        <!-- Portfolio Item Row -->
+        <!-- Portfolio Item Heading -->
+        <h2 class="my-4">HPE Brick Game</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <canvas id="game" width="480" height="320"></canvas>
+            </div>
+            <div class="col-md-4">
+                <button
+                    id="play-btn"
+                    class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+                    type="button">
+                    <i class="fas fa-play fas-4x"></i>
+                    Play
+                </button>
+                <h3 class="my-3">Human pose estimation based brick game</h3>
+                <p>The game is played with the help of human pose predicted by PoseNet. Please allow the website to access your camera and in 
+                    the live feed the output for estimated pose is diplayed. </p>
+                <h3 class="my-3">Steps to successfully play the game</h3>
+                <ul>
+                    <li>Allow camera access</li>
+                    <li>Make sure you are visible in fromt of the camera</li>
+                    <li>Tilt yourself to left/right see the paddle moving</li>
+                    <li>Press play button once you are ready</li>
+                    <li>Enjoy and beat the game!!!</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Related Projects Row -->
+        <h4 class="my-4">Live video feed</h4>
+        <div class="row">
+            <div id="camera" class="col-md-4">
+                <video id="video" playsinline style="display: none;"></video>
+                <canvas id="output"></canvas>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+
+    <!-- Game dialog -->
+    <div class="portfolio-modal modal fade" id="game-popup" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h4 class="text-uppercase mb-0"
+                                    id="portfolioModal3Label">Brick Game</h4>
+                                <img class="img-thumbnail rounded mb-5" id="game-popup-img">
+                                <h2 class="portfolio-modal-title text-uppercase mb-0"
+                                id="game-popup-status"></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /.container -->
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Load FilePond library -->
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-base64@3.4.5/base64.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+    <!-- Core theme JS-->
+    <script src="js/game.js"></script>
+</body>
+
+</html>
